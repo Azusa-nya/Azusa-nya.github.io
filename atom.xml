@@ -6,7 +6,7 @@
   <link href="https://azusa-nya.github.io/atom.xml" rel="self"/>
   
   <link href="https://azusa-nya.github.io/"/>
-  <updated>2025-12-30T12:36:06.486Z</updated>
+  <updated>2025-12-30T13:21:24.254Z</updated>
   <id>https://azusa-nya.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>blog</title>
+    <link href="https://azusa-nya.github.io/article/3222622531/"/>
+    <id>https://azusa-nya.github.io/article/3222622531/</id>
+    <published>2025-12-30T13:20:54.000Z</published>
+    <updated>2025-12-30T13:21:24.254Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="blog"><a href="#blog" class="headerlink" title="blog"></a>blog</h3><p>这是我的第一个blog</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;blog&quot;&gt;&lt;a href=&quot;#blog&quot; class=&quot;headerlink&quot; title=&quot;blog&quot;&gt;&lt;/a&gt;blog&lt;/h3&gt;&lt;p&gt;这是我的第一个blog&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="blog" scheme="https://azusa-nya.github.io/category/blog/"/>
+    
+    
+    <category term="blog" scheme="https://azusa-nya.github.io/tag/blog/"/>
+    
+  </entry>
   
   <entry>
     <title>测试</title>
