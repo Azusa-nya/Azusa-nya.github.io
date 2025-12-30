@@ -3,11 +3,11 @@
   <title>Azusa的个人博客</title>
   
   
-  <link href="https://azusa.github.io/atom.xml" rel="self"/>
+  <link href="https://azusa-nya.github.io/atom.xml" rel="self"/>
   
-  <link href="https://azusa.github.io/"/>
+  <link href="https://azusa-nya.github.io/"/>
   <updated>2025-12-30T12:36:06.486Z</updated>
-  <id>https://azusa.github.io/</id>
+  <id>https://azusa-nya.github.io/</id>
   
   <author>
     <name>Azusa</name>
@@ -18,25 +18,25 @@
   
   <entry>
     <title>测试</title>
-    <link href="https://azusa.github.io/article/2645272983/"/>
-    <id>https://azusa.github.io/article/2645272983/</id>
+    <link href="https://azusa-nya.github.io/article/2645272983/"/>
+    <id>https://azusa-nya.github.io/article/2645272983/</id>
     <published>2025-12-30T11:18:37.000Z</published>
     <updated>2025-12-30T12:36:06.486Z</updated>
     
     
     
     
-    <category term="测试" scheme="https://azusa.github.io/category/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="https://azusa-nya.github.io/category/%E6%B5%8B%E8%AF%95/"/>
     
     
-    <category term="测试" scheme="https://azusa.github.io/tag/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="https://azusa-nya.github.io/tag/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://azusa.github.io/article/1243066711/"/>
-    <id>https://azusa.github.io/article/1243066711/</id>
+    <link href="https://azusa-nya.github.io/article/1243066711/"/>
+    <id>https://azusa-nya.github.io/article/1243066711/</id>
     <published>2025-12-30T08:44:52.727Z</published>
     <updated>2025-12-30T10:32:45.158Z</updated>
     
@@ -55,8 +55,8 @@
   
   <entry>
     <title>Hexo主题LiveForCode介绍</title>
-    <link href="https://azusa.github.io/article/1112885395/"/>
-    <id>https://azusa.github.io/article/1112885395/</id>
+    <link href="https://azusa-nya.github.io/article/1112885395/"/>
+    <id>https://azusa-nya.github.io/article/1112885395/</id>
     <published>2020-07-31T16:00:00.000Z</published>
     <updated>2025-12-30T09:18:29.152Z</updated>
     
@@ -67,17 +67,17 @@
     
     
     
-    <category term="Web" scheme="https://azusa.github.io/category/Web/"/>
+    <category term="Web" scheme="https://azusa-nya.github.io/category/Web/"/>
     
     
-    <category term="Hexo" scheme="https://azusa.github.io/tag/Hexo/"/>
+    <category term="Hexo" scheme="https://azusa-nya.github.io/tag/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://azusa.github.io/article/1243066710/"/>
-    <id>https://azusa.github.io/article/1243066710/</id>
+    <link href="https://azusa-nya.github.io/article/1243066710/"/>
+    <id>https://azusa-nya.github.io/article/1243066710/</id>
     <published>2019-12-31T16:00:00.000Z</published>
     <updated>2025-12-30T10:32:45.157Z</updated>
     
@@ -88,10 +88,10 @@
     
     
     
-    <category term="Web" scheme="https://azusa.github.io/category/Web/"/>
+    <category term="Web" scheme="https://azusa-nya.github.io/category/Web/"/>
     
     
-    <category term="Hexo" scheme="https://azusa.github.io/tag/Hexo/"/>
+    <category term="Hexo" scheme="https://azusa-nya.github.io/tag/Hexo/"/>
     
   </entry>
   
