@@ -6,7 +6,7 @@
   <link href="https://azusa-nya.github.io/atom.xml" rel="self"/>
   
   <link href="https://azusa-nya.github.io/"/>
-  <updated>2026-01-29T08:57:03.662Z</updated>
+  <updated>2026-01-29T09:10:18.157Z</updated>
   <id>https://azusa-nya.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Prompt,rules,skills,mcp之间的关系</title>
+    <link href="https://azusa-nya.github.io/article/2080005987/"/>
+    <id>https://azusa-nya.github.io/article/2080005987/</id>
+    <published>2026-01-29T09:04:41.000Z</published>
+    <updated>2026-01-29T09:10:18.157Z</updated>
+    
+    
+    
+    
+    <category term="[object Object]" scheme="https://azusa-nya.github.io/category/object-Object/"/>
+    
+    
+    <category term="Agent" scheme="https://azusa-nya.github.io/tag/Agent/"/>
+    
+    <category term="Prompt" scheme="https://azusa-nya.github.io/tag/Prompt/"/>
+    
+    <category term="rules" scheme="https://azusa-nya.github.io/tag/rules/"/>
+    
+    <category term="skills" scheme="https://azusa-nya.github.io/tag/skills/"/>
+    
+    <category term="mcp" scheme="https://azusa-nya.github.io/tag/mcp/"/>
+    
+  </entry>
   
   <entry>
     <title>java中的数据结构</title>
