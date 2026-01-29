@@ -87,7 +87,223 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                
+                <p>在AI Agent、大模型应用开发的主流语境下，<strong>Prompt、Rules、Skills、MCP</strong>是构建智能体能力体系的核心概念，彼此分工不同、相互依存，共同支撑智能体完成复杂任务。下面先给出每个概念的精准定义，再系统梳理它们之间的层级、协作与依赖关系。</p>
+<h3 id="一、核心概念定义"><a href="#一、核心概念定义" class="headerlink" title="一、核心概念定义"></a>一、核心概念定义</h3><h4 id="1-Prompt（提示词）"><a href="#1-Prompt（提示词）" class="headerlink" title="1. Prompt（提示词）"></a>1. Prompt（提示词）</h4><h5 id="1-1-定义："><a href="#1-1-定义：" class="headerlink" title="1.1. 定义："></a><strong>1.1. 定义</strong>：</h5><p>Prompt即<strong>提示词</strong>，是向大语言模型（LLM）或AI Agent输入的结构化文本指令，是实现人机交互、引导模型输出符合预期结果的核心媒介。它通过明确的自然语言描述，向模型传递<strong>任务目标、执行方式、输出格式、上下文背景、示例参考</strong>等关键信息，是模型理解需求、生成响应的直接依据。</p>
+<blockquote>
+<p>Prompt &#x3D; 你对AI说的话</p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>“帮我写一篇关于春天的诗”</li>
+<li>“这段代码有什么bug？”</li>
+<li>“解释一下量子纠缠”</li>
+</ul>
+<p>在Agent体系中，Prompt主要分为两类：</p>
+<ul>
+<li><strong>系统Prompt（System Prompt）</strong>：预先设定的底层指令，定义Agent的核心身份、基础行为准则与通用输出规范，是Agent的“底层人设与基础指令”，通常固定不变。</li>
+<li><strong>用户Prompt（User Prompt）</strong>：用户实时发起的具体任务请求、问题或交互内容，是Agent单次执行任务的直接触发指令。</li>
+</ul>
+<h5 id="1-2-Prompt的特点："><a href="#1-2-Prompt的特点：" class="headerlink" title="1.2. Prompt的特点："></a><strong>1.2. Prompt的特点</strong>：</h5><ul>
+<li>简单直接，就像你在跟人聊天</li>
+<li>每次对话都可以不同</li>
+<li>适合一次性任务</li>
+</ul>
+<h5 id="1-3-Prompt的问题："><a href="#1-3-Prompt的问题：" class="headerlink" title="1.3. Prompt的问题："></a><strong>1.3. Prompt的问题</strong>：</h5><ul>
+<li>如果你经常要做类似的事情，每次都要重新输入Prompt</li>
+<li>AI可能会”忘记”你之前的设置</li>
+<li>无法复用和共享</li>
+</ul>
+<h4 id="2-Rules（规则）"><a href="#2-Rules（规则）" class="headerlink" title="2. Rules（规则）"></a>2. Rules（规则）</h4><h5 id="2-1-定义："><a href="#2-1-定义：" class="headerlink" title="2.1 定义："></a><strong>2.1 定义</strong>：</h5><p>Rules即<strong>规则</strong>，是为AI Agent设定的<strong>强制性约束、行为边界与合规准则</strong>，是不可违背的硬性规范，用于管控Agent的行为逻辑、输出内容与执行范围，避免模型出现偏差、违规或不符合业务需求的行为。</p>
+<blockquote>
+<p>Rules &#x3D; AI的行为准则</p>
+</blockquote>
+<p>比如：</p>
+<ul>
+<li>“你是一个专业的程序员，写代码时要遵循PEP8规范”</li>
+<li>“回复时要简短精炼，不要超过100字”</li>
+<li>“遇到不确定的信息，要明确告诉用户”</li>
+</ul>
+<p>规则的核心是“约束与边界”，常见类型包括：</p>
+<ul>
+<li><strong>安全合规规则</strong>：禁止输出违法、违规、暴力、歧视等不良内容的约束；</li>
+<li><strong>业务流程规则</strong>：限定Agent执行任务的流程、权限、数据访问范围；</li>
+<li><strong>输出格式规则</strong>：强制要求响应的结构、语气、字段完整性；</li>
+<li><strong>交互行为规则</strong>：限定Agent的对话风格、拒绝策略、异常处理方式。</li>
+</ul>
+<h5 id="2-2-Rules的特点："><a href="#2-2-Rules的特点：" class="headerlink" title="2.2 Rules的特点："></a><strong>2.2 Rules的特点：</strong></h5><ul>
+<li>一次设置，长期生效</li>
+<li>定义了AI的”人设”和”行为模式”</li>
+<li>适合长期稳定的需求</li>
+</ul>
+<h5 id="2-2-Rules的问题："><a href="#2-2-Rules的问题：" class="headerlink" title="2.2 Rules的问题："></a><strong>2.2 Rules的问题：</strong></h5><ul>
+<li>只能定义”做什么”和”不做什么”，无法定义”怎么做”</li>
+<li>无法包含复杂的操作步骤</li>
+<li>仍然比较抽象</li>
+</ul>
+<h4 id="3-Skills（技能）"><a href="#3-Skills（技能）" class="headerlink" title="3. Skills（技能）"></a>3. Skills（技能）</h4><h5 id="3-1-定义："><a href="#3-1-定义：" class="headerlink" title="3.1 定义："></a><strong>3.1 定义</strong>：</h5><p>Skills即<strong>技能</strong>，是AI Agent具备的<strong>可复用、模块化、可执行的任务能力集合</strong>，是Agent突破大模型原生能力局限、完成实际业务场景任务的核心支撑。技能是将抽象的任务需求转化为具体可执行动作的标准化单元。</p>
+<blockquote>
+<p>Skills &#x3D; AI的超能力模板</p>
+</blockquote>
+<p><strong>举个例子：</strong></p>
+<p>假设你经常需要从网页抓取数据并生成报告。</p>
+<ul>
+<li><strong>用Prompt</strong>：每次都要输入”帮我访问这个网页，提取XX数据，然后生成报告”</li>
+<li><strong>用Rules</strong>：可以设定”你是个数据分析师，生成报告时要包含XX部分”</li>
+<li><strong>用Skill</strong>：直接调用”网页数据抓取Skill”，它会自动完成访问→提取→分析→生成报告的全流程</li>
+</ul>
+<p>Agent的技能通常分为三类：</p>
+<ul>
+<li><strong>原生推理技能</strong>：基于大模型自身能力的基础技能，如文本理解、逻辑推理、内容总结、语言翻译；</li>
+<li><strong>工具调用技能</strong>：对接外部系统&#x2F;工具的扩展技能，如数据库查询、API调用、文档检索（RAG）、代码执行、数据分析；</li>
+<li><strong>自定义业务技能</strong>：针对特定行业场景封装的专属技能，如客服工单处理、财务报表生成、物流信息查询等。</li>
+</ul>
+<h5 id="3-2-一个Skill通常包含："><a href="#3-2-一个Skill通常包含：" class="headerlink" title="3.2 一个Skill通常包含："></a><strong>3.2 一个Skill通常包含：</strong></h5><ul>
+<li><strong>Prompt模板</strong>：定义任务目标</li>
+<li><strong>Rules</strong>：设定行为规范</li>
+<li><strong>操作步骤</strong>：具体的执行流程</li>
+<li><strong>工具调用</strong>：需要用到的外部工具或API</li>
+<li><strong>输出格式</strong>：标准化的结果呈现</li>
+</ul>
+<h5 id="3-3-Skills的特点："><a href="#3-3-Skills的特点：" class="headerlink" title="3.3 Skills的特点："></a><strong>3.3 Skills的特点：</strong></h5><ul>
+<li>完整性：从输入到输出的完整方案</li>
+<li>可复用：一次创建，多次使用</li>
+<li>可共享：可以被其他用户或Agent调用</li>
+<li>可组合：多个Skill可以组合完成复杂任务</li>
+</ul>
+<h5 id="3-4-Skills的价值："><a href="#3-4-Skills的价值：" class="headerlink" title="3.4 Skills的价值："></a><strong>3.4 Skills的价值：</strong></h5><ul>
+<li>不用每次都重新描述需求</li>
+<li>保证了输出的质量和一致性</li>
+<li>可以在社区中共享和交换</li>
+<li>让AI真正成为你的”数字员工”</li>
+</ul>
+<h4 id="4-MCP（Model-Context-Protocol，模型上下文协议）"><a href="#4-MCP（Model-Context-Protocol，模型上下文协议）" class="headerlink" title="4. MCP（Model Context Protocol，模型上下文协议）"></a>4. MCP（Model Context Protocol，模型上下文协议）</h4><h5 id="4-1-定义："><a href="#4-1-定义：" class="headerlink" title="4.1 定义："></a><strong>4.1 定义</strong>：</h5><p>MCP（Model Context Protocol）是一个<strong>技术协议</strong>，它的作用是让AI能够安全、规范地访问外部数据和服务。<br>它定义了 Agent 与外部资源之间的通信格式、连接方式、权限校验、工具发现、结果返回的统一标准，解决了以往模型对接不同工具时格式混乱、安全不可控、集成成本高的问题，被称为 AI 与外部世界的 “通用接口标准”。</p>
+<blockquote>
+<p>MCP &#x3D; AI和世界连接的协议</p>
+</blockquote>
+<p>你可以把MCP理解成一套”插座标准”:</p>
+<ul>
+<li>AI是电器</li>
+<li>外部系统（数据库、API、文件系统）是电源</li>
+<li>MCP是插座标准</li>
+</ul>
+<h5 id="4-2-MCP解决的问题："><a href="#4-2-MCP解决的问题：" class="headerlink" title="4.2 MCP解决的问题："></a><strong>4.2 MCP解决的问题：</strong></h5><ul>
+<li><strong>安全问题</strong>：如何让AI安全地访问敏感数据</li>
+<li><strong>标准化问题</strong>：不同的系统用统一的方式连接</li>
+<li><strong>权限管理</strong>：AI能做什么、不能做什么</li>
+<li><strong>数据隔离</strong>：避免AI越界访问不该访问的内容</li>
+</ul>
+<h5 id="4-3-MCP与Skills的关系："><a href="#4-3-MCP与Skills的关系：" class="headerlink" title="4.3 MCP与Skills的关系："></a><strong>4.3 MCP与Skills的关系：</strong></h5><blockquote>
+<p>Skills是”做什么”，MCP是”怎么安全地做”。</p>
+</blockquote>
+<p>一个Skill在执行过程中，如果需要访问外部系统，就会通过MCP协议来连接。</p>
+<h3 id="二、Prompt、Rules、Skills、MCP之间的关系"><a href="#二、Prompt、Rules、Skills、MCP之间的关系" class="headerlink" title="二、Prompt、Rules、Skills、MCP之间的关系"></a>二、Prompt、Rules、Skills、MCP之间的关系</h3><p>四者构成<strong>「需求触发 → 规则校验 → 能力匹配 → 协议通信 → 结果返回」</strong>的完整闭环，是<strong>层级分工明确、依次协同、缺一不可</strong>的关系，下面从层级定位、动态工作流、两两关联三个维度详细说明。</p>
+<h3 id="（一）层级定位关系：四层协同，自上而下驱动"><a href="#（一）层级定位关系：四层协同，自上而下驱动" class="headerlink" title="（一）层级定位关系：四层协同，自上而下驱动"></a>（一）层级定位关系：四层协同，自上而下驱动</h3><p>从任务执行的逻辑层级来看，四者形成清晰的自上而下的驱动与支撑结构，每一层都为下一层提供约束或输入，下一层为上一层提供执行保障：</p>
+<p><img src="/image/article/2080005987/Prompt%E3%80%81Rules%E3%80%81Skills%E3%80%81MCP%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg" alt="Prompt、Rules、Skills、MCP之间的关系图"></p>
+<ul>
+<li><strong>Prompt</strong>：是你和AI对话的起点</li>
+<li><strong>Rules</strong>：定义AI的基本行为规范</li>
+<li><strong>Skills</strong>：封装了完整的任务解决方案</li>
+<li><strong>MCP</strong>：让AI能够安全地连接外部世界</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">层级</th>
+<th align="left">概念</th>
+<th align="left">核心定位</th>
+<th align="left">核心职责</th>
+<th align="left">与其他层的关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">第1层（需求层）</td>
+<td align="left"><strong>Prompt</strong></td>
+<td align="left">任务发起者</td>
+<td align="left">提出具体任务需求，传递上下文</td>
+<td align="left">触发后续所有流程，是整个链路的源头</td>
+</tr>
+<tr>
+<td align="left">第2层（管控层）</td>
+<td align="left"><strong>Rules</strong></td>
+<td align="left">行为约束者</td>
+<td align="left">校验需求合规性，管控执行边界</td>
+<td align="left">对 Prompt 的需求进行约束，同时限定 Skills 的调用范围与 MCP 的通信权限</td>
+</tr>
+<tr>
+<td align="left">第3层（能力层）</td>
+<td align="left"><strong>Skills</strong></td>
+<td align="left">能力执行者</td>
+<td align="left">匹配需求，提供具体业务能力</td>
+<td align="left">响应 Prompt 的需求，受 Rules 约束，依赖 MCP 实现外部能力的落地</td>
+</tr>
+<tr>
+<td align="left">第4层（通信层）</td>
+<td align="left"><strong>MCP</strong></td>
+<td align="left">标准连接器</td>
+<td align="left">提供安全规范的外部通信通道</td>
+<td align="left">为 Skills 提供标准化的外部调用接口，执行 Rules 中定义的权限与安全规则</td>
+</tr>
+</tbody></table>
+<h3 id="（二）动态协同工作流：完整的-Agent-任务执行过程"><a href="#（二）动态协同工作流：完整的-Agent-任务执行过程" class="headerlink" title="（二）动态协同工作流：完整的 Agent 任务执行过程"></a>（二）动态协同工作流：完整的 Agent 任务执行过程</h3><p>结合实际业务场景，以「Agent 查询企业月度销售数据并生成报表」为例，完整演示四者的协作流程：</p>
+<ol>
+<li><p><strong>Prompt 发起需求</strong><br>用户输入 Prompt：「请查询我司2025年12月的销售数据，并生成一份Excel格式的销售报表」。<br>系统 Prompt 预先定义：「你是企业财务智能助手，仅可访问销售数据库，输出需合规，禁止泄露敏感数据」。</p>
+</li>
+<li><p><strong>Rules 执行合规校验</strong><br>Agent 基于预设 Rules 对 Prompt 进行校验：</p>
+<ul>
+<li>校验权限规则：确认该请求属于销售数据查询范畴，允许访问对应数据库；</li>
+<li>校验合规规则：确认无敏感信息泄露风险，允许生成报表；</li>
+<li>校验流程规则：规定需先查询数据，再生成报表，不可颠倒执行。<br>校验通过后，进入能力匹配环节。</li>
+</ul>
+</li>
+<li><p><strong>Skills 匹配并发起能力调用</strong><br>Agent 根据 Prompt 需求，匹配对应的 Skills：</p>
+<ul>
+<li>匹配「销售数据库查询 Skill」：用于获取原始销售数据；</li>
+<li>匹配「Excel 报表生成 Skill」：用于将数据格式化为报表。<br>此时，Skills 本身无法直接连接外部数据库和文件服务，需要依赖标准化的通信通道。</li>
+</ul>
+</li>
+<li><p><strong>MCP 提供标准化通信支撑</strong><br>Skills 通过 <strong>MCP 协议</strong> 与外部资源进行安全交互：</p>
+<ul>
+<li>MCP 按照协议规范，封装数据库查询请求，携带身份与权限凭证；</li>
+<li>MCP Server 端校验 Rules 中定义的访问权限，验证通过后执行查询；</li>
+<li>查询结果通过 MCP 协议标准化返回给 Agent；</li>
+<li>后续「Excel 报表生成 Skill」同样通过 MCP 协议，安全调用文件生成服务，完成报表制作。</li>
+</ul>
+</li>
+<li><p><strong>结果输出与最终校验</strong><br>报表生成后，再次通过 Rules 校验输出格式与内容合规性，最终将结果返回给用户，完成整个任务闭环。</p>
+</li>
+</ol>
+<h3 id="（三）两两之间的核心关联"><a href="#（三）两两之间的核心关联" class="headerlink" title="（三）两两之间的核心关联"></a>（三）两两之间的核心关联</h3><h4 id="1-Prompt-↔-Rules"><a href="#1-Prompt-↔-Rules" class="headerlink" title="1. Prompt ↔ Rules"></a>1. Prompt ↔ Rules</h4><ul>
+<li>Prompt 提出任务需求，Rules 对该需求进行<strong>强制性约束与合规审查</strong>，决定该需求是否允许执行、以何种方式执行。</li>
+<li>系统 Prompt 中通常会嵌入基础的 Rules 描述，而独立的 Rules 模块则是更工程化、可动态配置的约束体系，对 Prompt 形成补充和强管控。</li>
+<li>若 Prompt 触发违规需求，Rules 会直接拦截，终止后续流程。</li>
+</ul>
+<h4 id="2-Prompt-↔-Skills"><a href="#2-Prompt-↔-Skills" class="headerlink" title="2. Prompt ↔ Skills"></a>2. Prompt ↔ Skills</h4><ul>
+<li>Prompt 是 Skills 的<strong>唯一触发源</strong>，Skills 是实现 Prompt 需求的<strong>能力载体</strong>。</li>
+<li>简单的 Prompt（如文本翻译）可仅依赖模型原生 Skills 完成；复杂的 Prompt（如查询数据、生成报表）必须调用外部扩展 Skills 才能落地。</li>
+<li>Agent 会通过理解 Prompt 的语义，自动匹配并激活对应的 Skills。</li>
+</ul>
+<h4 id="3-Skills-↔-MCP"><a href="#3-Skills-↔-MCP" class="headerlink" title="3. Skills ↔ MCP"></a>3. Skills ↔ MCP</h4><ul>
+<li>Skills 是<strong>能力的逻辑定义</strong>，MCP 是<strong>能力的物理执行通道</strong>。</li>
+<li>所有需要访问外部工具、数据源的 Skills，都必须通过 MCP 协议完成通信，MCP 为 Skills 提供统一的调用标准、安全校验和结果解析。</li>
+<li>MCP 解决了 Skills 对接外部资源的碎片化问题，让不同的 Skills 可以用同一套协议规范连接各类外部服务。</li>
+</ul>
+<h4 id="4-Rules-↔-MCP"><a href="#4-Rules-↔-MCP" class="headerlink" title="4. Rules ↔ MCP"></a>4. Rules ↔ MCP</h4><ul>
+<li>Rules 定义<strong>权限与安全策略</strong>，MCP 负责<strong>落地执行这些策略</strong>。</li>
+<li>Rules 中规定的“可访问的数据源”“可调用的工具列表”“传输加密要求”等，都会转化为 MCP 通信过程中的校验规则。</li>
+<li>MCP 在建立连接、传输数据、返回结果的全流程中，都会实时遵循 Rules 的约束，确保通信行为合规安全。</li>
+</ul>
+<h4 id="5-Prompt-↔-MCP"><a href="#5-Prompt-↔-MCP" class="headerlink" title="5. Prompt ↔ MCP"></a>5. Prompt ↔ MCP</h4><ul>
+<li>二者无直接交互，Prompt 不直接调用 MCP。</li>
+<li>Prompt 通过触发 Skills，间接驱动 MCP 启动通信流程；MCP 的执行结果，最终会被整合后，以符合 Prompt 要求的形式返回给用户。</li>
+</ul>
+<h2 id="三、关系总结"><a href="#三、关系总结" class="headerlink" title="三、关系总结"></a>三、关系总结</h2><ol>
+<li><strong>Prompt 是起点</strong>：提出任务需求，开启整个 Agent 执行流程，决定任务的目标与方向。</li>
+<li><strong>Rules 是底线</strong>：全程管控行为边界与合规性，保障 Agent 安全、有序地执行任务，约束 Prompt、Skills、MCP 的所有行为。</li>
+<li><strong>Skills 是核心能力</strong>：承接 Prompt 的需求，提供具体的业务执行能力，是 Agent 完成复杂任务的关键。</li>
+<li><strong>MCP 是底层支撑</strong>：作为标准化通信协议，为 Skills 提供安全、规范的外部资源访问通道，是 Skills 落地外部能力的技术基础。</li>
+</ol>
+<p>整体而言，四者的关系可以概括为：<strong>Prompt 发令，Rules 把关，Skills 办事，MCP 铺路</strong>，共同构成了现代 AI Agent 从需求接收到任务完成的完整能力体系。</p>
+
                 
                 <p class="end">__END__</p>
             </div>
