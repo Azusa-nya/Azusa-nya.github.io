@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            Azusa的个人博客
+            智力题：四人过桥问题（过河问题）
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -33,150 +33,147 @@
 </head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/index.css">
-<div id="count"></div>
-<div id="header" >
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-title">Azusa</h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
+                <h1 class="header-subtitle">智力题：四人过桥问题（过河问题）</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2026-01-29
+                        </span>
+                        
+                            
+                                <span id="/article/1831749265/" class="leancloud_visitors" data-flag-title="智力题：四人过桥问题（过河问题）">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/article/1831749265/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">面试</span>
+                        
+                            <span class="category-color">智力题</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">面试</span>
+                        
+                            <span class="tag-color">智力题</span>
+                        
+                    
+                </div>
             
         </div>
     </div>
     
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
-    
 </div>
 <div id="container">
     
-        
-            <!-- 首页 -->
-            <div class="articles">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="四人过桥问题（经典最优解）"><a href="#四人过桥问题（经典最优解）" class="headerlink" title="四人过桥问题（经典最优解）"></a>四人过桥问题（经典最优解）</h1><p>这是一道经典的逻辑运筹问题，<strong>先明确标准题目设定</strong>，再推导最短耗时方案：</p>
+<h3 id="一、问题标准条件"><a href="#一、问题标准条件" class="headerlink" title="一、问题标准条件"></a>一、问题标准条件</h3><p>假设有四人过桥，所需时间分别为：</p>
+<ul>
+<li>甲：1分钟</li>
+<li>乙：2分钟</li>
+<li>丙：5分钟</li>
+<li>丁：10分钟</li>
+</ul>
+<p>附加规则：</p>
+<ol>
+<li>桥<strong>最多同时容纳2人</strong>通过；</li>
+<li>只有1个火炬，<strong>过桥必须手持火炬</strong>，无火炬无法过桥；</li>
+<li>两人同行时，<strong>过桥耗时以较慢者的速度为准</strong>；</li>
+<li>目标：四人全部安全过桥，求<strong>最短总耗时</strong>。</li>
+</ol>
+<h3 id="二、核心解题思路"><a href="#二、核心解题思路" class="headerlink" title="二、核心解题思路"></a>二、核心解题思路</h3><p>避免让耗时最长的两人<strong>单独往返过桥</strong>，减少慢者的无效耗时；同时利用速度快的人完成火炬传递，平衡往返的时间成本，最终有两种主流策略，对比后得出最优解。</p>
+<h3 id="三、两种策略耗时对比"><a href="#三、两种策略耗时对比" class="headerlink" title="三、两种策略耗时对比"></a>三、两种策略耗时对比</h3><h4 id="策略一：最快者全程往返送火炬（常规思路）"><a href="#策略一：最快者全程往返送火炬（常规思路）" class="headerlink" title="策略一：最快者全程往返送火炬（常规思路）"></a>策略一：最快者全程往返送火炬（常规思路）</h4><ol>
+<li>甲+乙过桥，耗时2分钟，甲返回，耗时1分钟，累计3分钟</li>
+<li>甲+丙过桥，耗时5分钟，甲返回，耗时1分钟，累计6 + 3 &#x3D; 9分钟</li>
+<li>甲+丁过桥，耗时10分钟，累计<strong>10 + 9 &#x3D; 19分钟</strong></li>
+</ol>
+<h4 id="策略二：快慢组合结伴，最优方案（最短耗时）"><a href="#策略二：快慢组合结伴，最优方案（最短耗时）" class="headerlink" title="策略二：快慢组合结伴，最优方案（最短耗时）"></a>策略二：快慢组合结伴，最优方案（最短耗时）</h4><ol>
+<li>甲+乙一同过桥，耗时以慢者乙为准，耗时<strong>2分钟</strong><br>此时状态：对岸（甲、乙），原岸（丙、丁），累计2分钟</li>
+<li>甲单独持火炬返回原岸，耗时<strong>1分钟</strong><br>此时状态：对岸（乙），原岸（甲、丙、丁），累计3分钟</li>
+<li>丙+丁一同过桥，耗时以慢者丁为准，耗时<strong>10分钟</strong><br>此时状态：对岸（乙、丙、丁），原岸（甲），累计13分钟</li>
+<li>乙单独持火炬返回原岸，耗时<strong>2分钟</strong><br>此时状态：对岸（丙、丁），原岸（甲、乙），累计15分钟</li>
+<li>甲+乙再次一同过桥，耗时<strong>2分钟</strong><br>此时四人全部抵达对岸，累计<strong>2 + 1 + 10 + 2 + 2 &#x3D; 17分钟</strong></li>
+</ol>
+<h3 id="四、最终结论"><a href="#四、最终结论" class="headerlink" title="四、最终结论"></a>四、最终结论</h3><p>在上述标准设定下，四人全部过桥的<strong>最短时间为17分钟</strong>，核心是让耗时最长的丙、丁结伴过桥，避免两人分别消耗大量时间，再通过速度次快的乙完成火炬返程，最大化减少总耗时。</p>
+
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/article/1831749265/">智力题：四人过桥问题（过河问题）</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2026-01-29
-                            </span>
-                            
-                                
-                                    <span id="/article/1831749265/" class="leancloud_visitors" data-flag-title="智力题：四人过桥问题（过河问题）">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/article/1831749265/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/touxiang.png" alt="Azusa">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Azusa
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/article/1831749265/" target="_blank">智力题：四人过桥问题（过河问题）</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>一边疯狂记录，一边璀璨忘记！
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E9%9D%A2%E8%AF%95/">面试</a>
+                        
+                            <a href="/category/%E9%9D%A2%E8%AF%95/%E6%99%BA%E5%8A%9B%E9%A2%98/">智力题</a>
+                        
                     </div>
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/article/1163844599/">AI对话之间的token概览，如何节约token</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2026-01-29
-                            </span>
-                            
-                                
-                                    <span id="/article/1163844599/" class="leancloud_visitors" data-flag-title="AI对话之间的token概览，如何节约token">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/article/1163844599/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E9%9D%A2%E8%AF%95/">面试</a>
+                        
+                            <a href="/tag/%E6%99%BA%E5%8A%9B%E9%A2%98/">智力题</a>
+                        
                     </div>
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/article/2080005987/">Prompt,rules,skills,mcp之间的关系</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2026-01-29
-                            </span>
-                            
-                                
-                                    <span id="/article/2080005987/" class="leancloud_visitors" data-flag-title="Prompt,rules,skills,mcp之间的关系">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/article/2080005987/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/article/2946991822/">java中的数据结构</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2026-01-29
-                            </span>
-                            
-                                
-                                    <span id="/article/2946991822/" class="leancloud_visitors" data-flag-title="java中的数据结构">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/article/2946991822/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
+                <div class="article-prev-next">
+                    
+                    
+                        <a href="/article/1163844599/" class="next-prefix">» </a> 下一篇：    <a href="/article/1163844599/" title="发布于 2026-01-29 06:11">AI对话之间的token概览，如何节约token</a>
+                    
+                </div>
             </div>
             
-            
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -208,7 +205,7 @@
             <div class="menu-list">
                 <ul>
                     
-                        <li class=" active "><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
                     
                         <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
                     
